@@ -1,0 +1,18 @@
+# default: off
+# description: The POP3 service allows remote users to access their mail \
+#              using an POP3 client such as Netscape Communicator, mutt, \
+#	       or fetchmail.
+service daytime-bis 
+{
+	socket_type	= stream
+	wait		= no
+	user		= nobody
+        id              = daytime-bis
+        type            = INTERNAL
+	redirect     = 127.0.0.1 13
+	bind         = 0.0.0.0
+	port         = 2013
+	log_on_success	+= HOST DURATION
+	log_on_failure	+= HOST
+	disable			= no
+}
